@@ -2,13 +2,16 @@ import React, { useState } from 'react'
 import Cookies from 'universal-cookie';
 import axios from 'axios';
 
-import signinImge from '../assets/signup.jpg';
+import signinImage from '../assets/signup.jpg';
 
 const Auth = () => {
     const [isSignup, setIsSignup] = useState(true);
 
     const handleChange = () => {
 
+    }
+    const switchMode = () => {
+        setIsSignup((prevIsSignup) => !prevIsSignup);
     }
     return (
         <div className='auth__form-container'>
@@ -49,7 +52,24 @@ const Auth = () => {
                           </div> 
                           )}
                     </form>
+                    <div className='auth__form-container_fields-account'>
+                        <p>
+                            {isSignup
+                                ? 'Already have an account?'
+                                : 'Dont have an account?'
+                            }
+                            <span onClick={switchMode}>
+                                {isSignup
+                                    ? ' Sign In'
+                                    : ' Sign Up'
+                                }
+                            </span>
+                        </p>
+                    </div>
                 </div>
+            </div>
+            <div className='auth__form-container_image'>
+                <img src={signinImage} alt='sign in' />
             </div>
         </div>
     )
