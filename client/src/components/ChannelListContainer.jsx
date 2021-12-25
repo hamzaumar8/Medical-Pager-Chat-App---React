@@ -37,7 +37,7 @@ const customChannelMessagingFilter = (channels) => {
 }
 
 
-const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing }) => {
+const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEditing, setToggleContainer }) => {
     const { client } = useChatContext();
 
     const logout = () => {
@@ -71,10 +71,17 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                             setIsCreating={setIsCreating}
                             setCreateType={setCreateType}
                             setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer}
                         />
                     )}
                     Preview={(previewProps) => (
-                        <TeamChannelPreview {...previewProps} type="team" />
+                        <TeamChannelPreview 
+                            {...previewProps} 
+                            setIsCreating={setIsCreating}
+                            setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer} 
+                            type="team"
+                        />
                     )}
                 />
                <ChannelList
@@ -88,10 +95,17 @@ const ChannelListContent = ({ isCreating, setIsCreating, setCreateType, setIsEdi
                             setIsCreating={setIsCreating}
                             setCreateType={setCreateType}
                             setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer}
                         />
                     )}
                     Preview={(previewProps) => (
-                        <TeamChannelPreview {...previewProps} type="messaging" />
+                        <TeamChannelPreview 
+                            {...previewProps} 
+                            setIsCreating={setIsCreating}
+                            setIsEditing={setIsEditing}
+                            setToggleContainer={setToggleContainer}
+                            type="messaging" 
+                        />
                     )}
                 />
            </div>
