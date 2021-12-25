@@ -32,6 +32,7 @@ const CreateChannel = ({ createType, setIsCreating }) => {
         event.preventDefault();
 
         try {
+            console.log("hamza",createType)
             const newChannel = await client.channel(createType, channelName, { 
                 name: channelName, members: selectedUsers
             });
@@ -42,7 +43,7 @@ const CreateChannel = ({ createType, setIsCreating }) => {
             setIsCreating(false);
             setSelectedUsers([client.userID]);
             setActiveChannel(newChannel);
-            
+
         } catch (error) {
             console.log(error);
         }
